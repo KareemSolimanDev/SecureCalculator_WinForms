@@ -51,7 +51,37 @@ namespace SecureCalculator
         #endregion
 
         #region CalculationsHistory
-        // Handel last calculations
+        private void renderHistory()
+        {
+            string selectSign(Calculator.Operations op)
+            {
+                switch (op)
+                {
+                    case Calculator.Operations.modulo:
+                        return "%";
+                    case Calculator.Operations.division:
+                        return "/";
+                    case Calculator.Operations.multiply:
+                        return "x";
+                    case Calculator.Operations.minus:
+                        return "-";
+                    case Calculator.Operations.plus:
+                        return "+";
+                    default:
+                        return "??";
+
+                }
+            }
+            CalculationCard CalcuCard = new();
+            foreach(Calculator Cu in C1.Calculations)
+            {
+                string equation = Cu.FirstNumber.ToString() 
+                                    + " " + selectSign(Cu.operation) + " " +Cu.SecondNumber.ToString() + " = " + Cu.Result.ToString();
+
+                CalcuCard.lb_calcu.Text = equation;
+                flp_history.Controls.Add(CalcuCard);
+            }
+        }
         #endregion
 
         #region UiHandeling
@@ -68,10 +98,6 @@ namespace SecureCalculator
             }
         }
 
-        private void sign_Clicked(object sender, EventArgs e)
-        {
-            lb_Sign.Text = ((Guna2Button)sender).Text;
-        }
         private void btnBackSpace_Click(object sender, EventArgs e)
         {
             tbResultScreen.Text = tbResultScreen.Text.Substring(0, tbResultScreen.Text.Length - 1);
@@ -113,34 +139,35 @@ namespace SecureCalculator
         {
             takeTheNumber();
             C1.operation = Calculator.Operations.modulo;
+            lb_Sign.Text = ((Guna2Button)sender).Text;
         }
 
         private void btnDevide_Click(object sender, EventArgs e)
         {
             takeTheNumber();
             C1.operation = Calculator.Operations.division;
-
+            lb_Sign.Text = ((Guna2Button)sender).Text;
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
             takeTheNumber();
             C1.operation = Calculator.Operations.multiply;
-
+            lb_Sign.Text = ((Guna2Button)sender).Text;
         }
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
             takeTheNumber();
             C1.operation = Calculator.Operations.minus;
-
+            lb_Sign.Text = ((Guna2Button)sender).Text;
         }
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
             takeTheNumber();
             C1.operation = Calculator.Operations.plus;
-
+            lb_Sign.Text = ((Guna2Button)sender).Text;
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
@@ -149,7 +176,9 @@ namespace SecureCalculator
             C1.calculate();
             tbResultScreen.Text = C1.Result.ToString();
             C1.firstOp = true;
-            lb_Sign.Text = lb_firstNum.Text = "";
+            lb_firstNum.Text = "";
+            lb_Sign.Text = ((Guna2Button)sender).Text;
+            renderHistory();
         }
         #endregion
 
