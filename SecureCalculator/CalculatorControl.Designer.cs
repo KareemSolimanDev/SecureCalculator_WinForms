@@ -1,6 +1,6 @@
 ﻿namespace SecureCalculator
 {
-    partial class UserControl1
+    partial class CalculatorControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -67,7 +67,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatorControl));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -75,6 +75,9 @@
             guna2vSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            label1 = new Label();
+            lb_Sign = new Label();
+            lb_firstNum = new Label();
             tbResultScreen = new Guna.UI2.WinForms.Guna2TextBox();
             btnEqual = new Guna.UI2.WinForms.Guna2Button();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -135,6 +138,9 @@
             // guna2CustomGradientPanel1
             // 
             guna2CustomGradientPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            guna2CustomGradientPanel1.Controls.Add(label1);
+            guna2CustomGradientPanel1.Controls.Add(lb_Sign);
+            guna2CustomGradientPanel1.Controls.Add(lb_firstNum);
             guna2CustomGradientPanel1.Controls.Add(tbResultScreen);
             guna2CustomGradientPanel1.CustomizableEdges = customizableEdges5;
             guna2CustomGradientPanel1.FillColor = Color.FromArgb(0, 68, 249);
@@ -146,6 +152,40 @@
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2CustomGradientPanel1.Size = new Size(859, 163);
             guna2CustomGradientPanel1.TabIndex = 20;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(11, 14);
+            label1.Name = "label1";
+            label1.Size = new Size(34, 26);
+            label1.TabIndex = 4;
+            label1.Text = ":D";
+            // 
+            // lb_Sign
+            // 
+            lb_Sign.Anchor = AnchorStyles.Right;
+            lb_Sign.BackColor = Color.Transparent;
+            lb_Sign.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lb_Sign.ForeColor = Color.White;
+            lb_Sign.Location = new Point(811, 18);
+            lb_Sign.Name = "lb_Sign";
+            lb_Sign.Size = new Size(25, 19);
+            lb_Sign.TabIndex = 3;
+            // 
+            // lb_firstNum
+            // 
+            lb_firstNum.Anchor = AnchorStyles.Right;
+            lb_firstNum.BackColor = Color.Transparent;
+            lb_firstNum.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lb_firstNum.ForeColor = Color.White;
+            lb_firstNum.Location = new Point(731, 18);
+            lb_firstNum.Name = "lb_firstNum";
+            lb_firstNum.Size = new Size(83, 19);
+            lb_firstNum.TabIndex = 2;
+            lb_firstNum.TextAlign = ContentAlignment.MiddleRight;
             // 
             // tbResultScreen
             // 
@@ -160,7 +200,7 @@
             tbResultScreen.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tbResultScreen.ForeColor = Color.FromArgb(0, 159, 238);
             tbResultScreen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            tbResultScreen.Location = new Point(11, 42);
+            tbResultScreen.Location = new Point(11, 51);
             tbResultScreen.Margin = new Padding(14);
             tbResultScreen.MaxLength = 8;
             tbResultScreen.Name = "tbResultScreen";
@@ -169,7 +209,7 @@
             tbResultScreen.ReadOnly = true;
             tbResultScreen.SelectedText = "";
             tbResultScreen.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            tbResultScreen.Size = new Size(834, 98);
+            tbResultScreen.Size = new Size(834, 89);
             tbResultScreen.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             tbResultScreen.TabIndex = 0;
             tbResultScreen.TextAlign = HorizontalAlignment.Right;
@@ -577,13 +617,13 @@
             btnClear.Text = "C";
             btnClear.Click += btnClear_Click;
             // 
-            // UserControl1
+            // CalculatorControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(guna2GradientPanel2);
             Controls.Add(guna2GradientPanel1);
-            Name = "UserControl1";
+            Name = "CalculatorControl";
             Size = new Size(1170, 770);
             guna2GradientPanel1.ResumeLayout(false);
             guna2GradientPanel2.ResumeLayout(false);
@@ -617,5 +657,8 @@
         private Guna.UI2.WinForms.Guna2Button btnClear;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2TextBox tbResultScreen;
+        private Label lb_firstNum;
+        private Label lb_Sign;
+        private Label label1;
     }
 }
